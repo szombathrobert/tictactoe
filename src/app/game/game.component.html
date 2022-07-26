@@ -4,4 +4,9 @@
   <h2>Játékos {{winner}} nyert!</h2>
   <h3>Döntetlen!</h3>
   <button>Játék indítása</button>
+
+  <main>
+    <app-board *ngFor="let val of squares; let i = index" [value]="val"
+    (click)="makeMove(i)"></app-board>
+  </main>
 </div>
