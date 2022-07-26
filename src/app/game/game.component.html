@@ -1,12 +1,11 @@
 <div class="outer-cont">
   <h2 *ngIf="freshpage">Játsz Amőbát!</h2>
-  <h1 *ngIf="!winner && !isdraw && !freshpage">Jelenlegi játékos:{{player}}</h1>
-  <h2 *ngIf="winner">Játékos {{winner}} nyert!</h2>
+  <h1 *ngIf="!winner && !isdraw && !freshpage"> Jelenlegi játékos: {{player}}</h1>
+  <h2 *ngIf="winner">{{winner}} Játékos nyert!</h2>
   <h2 *ngIf="isdraw">Döntetlen!</h2>
-  <button (click)="newGame()">Játék indítása</button>
+  <button *ngIf="winner || isdraw ||freshpage" outline (click)="newGame()">Játék indítása</button>
 
   <main *ngIf="!winner && !isdraw">
-    <app-board *ngFor="let val of squares; let i = index" [value]="val"
-    (click)="makeMove(i)"></app-board>
+    <app-board *ngFor="let val of squares; let i = index" [value]="val" (click)="makeMove(i)"></app-board>
   </main>
 </div>
